@@ -35,7 +35,7 @@ const Hero = () => {
                                     <Typography style={{ fontSize: '1.3rem', marginBottom: '35px'}} component="p" variant="body1">
                                         Create your custom quiz, import quiz and use the quiz for interview exam/test.
                                     </Typography>
-                                    <div>
+                                    <div style={{marginBottom: '70px'}}>
                                         <Button component={RouterLink} to="/Demo" className={styles.heroBtn} variant="contained">
                                             See Demo
                                         </Button>
