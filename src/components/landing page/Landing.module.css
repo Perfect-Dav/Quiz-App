@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+/** Header Section **/
+
+.allBtn {
+    text-decoration: none !important;
+}
+
+.allBtn:focus {
+    border-color: none !important;
+    border: none;
+    outline: none;
+}
+
+.allBtn:hover {
+    text-decoration: none !important;
+}
+
+.menuBtn:focus {
+    border-color: none !important;
+    border: none;
+    outline: none;
+}
+
+.logo_image {
+    max-width: 47%;
+    height: auto;
+    margin-left: -59px;
+}
+
+/** Hero Section **/
+
+.hero_container {
+    background: linear-gradient(-90deg, #3043ac 0%, #2690d9 77.11%, rgba(199, 20, 137, 0.63) 100%);
+}
+
+.hero_div {
+    margin-top: 1px;
+}
+
+.hero_img {
+    max-width: 100%;
+    height: auto;
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+    margin-top: 134px;
+    margin-bottom: 90px;
+}
+
+@-webkit-keyframes up-down {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.heroDetails {
+    margin-top: 210px;
+    color: #ffffff;
+}
+
+.heroH1 {
+    margin-bottom: 60px !important;
+}
+
+.heroBtn {
+    background-color: #ffffff !important;
+    width: 45%;
+}
+
+.heroBtn:focus {
+    border: none;
+    outline: none;
+}
+
+
+/** Media Queries **/
+
+@media only screen and (max-width: 767px) {
+    .allBtn {
+        display: none !important;
+    }
+
+    .heroDetails {
+        margin-top: 10px;
+    }
+}
