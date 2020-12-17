@@ -23,7 +23,7 @@ const UsersList = () => {
                     </Typography>
                 </div>
             </Container>
-            <Container>
+            <Container className={styles.imageContainer}>
                 <Row>
                     {UserImagesArray.map((userImg) => (
                         <UsersItems key={userImg.id} {...userImg} />

@@ -48,7 +48,7 @@ const GetStarted = () => {
                                 <Card.Title>
                                     <Typography className={styles.cardLabel} variant="h5">{card.cardLabel}</Typography>
                                 </Card.Title>
-                                <Card.Img variant="bottom" src={card.cardimage} />
+                                <Card.Img className={styles.cardImg} variant="bottom" src={card.cardimage} />
                             </Card>
                         </Col>
                     ))}
