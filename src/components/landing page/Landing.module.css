@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
 /** Header Section **/
 
@@ -32,6 +33,7 @@
 
 .hero_container {
     background: linear-gradient(-90deg, #3043ac 0%, #2690d9 77.11%, rgba(199, 20, 137, 0.63) 100%);
+    height: 100%;
 }
 
 .hero_div {
@@ -100,6 +102,51 @@
     height: auto;
 }
 
+/** Card Section **/
+
+.cardSection {
+    margin-top: 176px;
+}
+
+.cardHead {
+    font-family: 'Quicksand', sans-serif !important;
+    margin-bottom: 81px !important;
+}
+
+.card {
+    background-color: #f2f2f2 !important;
+    box-shadow: inset -4px -4px 24px rgba(0,0,0,0.04), inset 4px 4px 24px #fff;
+    border-radius: 24px !important;
+    padding: 16px 16px 0;
+    border: 4px solid rgba(0,0,0,0.04);
+}
+
+.cardNum {
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    margin: 24px auto;
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.05), inset 2px 2px 8px rgba(255,255,255,0.25), inset -2px -2px 4px rgba(0,0,0,0.05);
+    border-radius: 50%;
+    font-size: 32px !important;
+    font-weight: bold;
+    line-height: 52px;
+    color: #292A3A;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+.cardLabel {
+    font-size: 28px !important;
+    font-weight: bold;
+    color: #292A3A;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+.svgCard {
+    margin-top: -188px;
+}
 
 /** Media Queries **/
 
@@ -110,5 +157,29 @@
 
     .heroDetails {
         margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 715px) {
+    .svgCard {
+        margin-top: -80px;
+    }
+}
+
+@media (max-width: 991px) {
+    .cardLabel {
+        font-size: 24px !important;
+    }
+
+    .cardHead {
+        font-size: 40px !important;
+        margin-bottom: 32px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .cardHead {
+        font-size: 24px !important;
+        margin-bottom: 16px !important;
     }
 }

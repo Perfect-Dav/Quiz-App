@@ -35,7 +35,7 @@ const Hero = () => {
                                     <Typography style={{ fontSize: '1.3rem', marginBottom: '35px'}} component="p" variant="body1">
                                         Create your custom quiz, import quiz and use the quiz for interview exam/test.
                                     </Typography>
-                                    <div style={{marginBottom: '70px'}}>
+                                    <div style={{marginBottom: '112px'}}>
                                         <Button component={RouterLink} to="/Demo" className={styles.heroBtn} variant="contained">
                                             See Demo
                                         </Button>
@@ -45,6 +45,17 @@ const Hero = () => {
                         </Row>
                     </Container>
             </section>
+            
+                <svg className={styles.svgCard}
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 1440 320">
+                        <path 
+                            fill="#ffffff" 
+                            fillOpacity="1" 
+                            d="M0,192L80,170.7C160,149,320,107,480,80C640,53,800,43,960,64C1120,85,1280,139,1360,165.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+                        </path>
+                </svg>
+            
         </>
      );
 }
