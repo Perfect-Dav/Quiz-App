@@ -14,7 +14,7 @@ const App = ({ hideLoader }) => {
     <Router>
     <div className="App">
       <Switch>
-        <Route path="/" component={MainHomePage} />
+        <Route path="/" exact component={MainHomePage} />
         <Route path="/HomePage" component={HomePage} />
       </Switch>
     </div>
