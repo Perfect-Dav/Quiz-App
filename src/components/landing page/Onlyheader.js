@@ -16,7 +16,6 @@ import Link from '@material-ui/core/Link';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import Hero from './Hero';
 import Logo from "../assets/Quiz_image.png";
 import styles from './Landing.module.css';
 
@@ -153,7 +152,6 @@ const Header = () => {
 
                 <div className={classes.drawerHeader} />
 
-                <Hero />
                 </main>
                 <Drawer
                   className={classes.drawer}

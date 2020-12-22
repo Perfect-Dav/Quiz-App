@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
             background: 'red'
         }
     }
-}))
+}));
 
 const overviewImages = [
     {
