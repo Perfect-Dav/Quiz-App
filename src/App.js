@@ -9,6 +9,7 @@ import ForgotPassword from "./components/registration/ForgotPassword";
 import Register from "./components/registration/Register";
 
 import "bootstrap/dist/css/bootstrap.css";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const App = ({ hideLoader }) => {
 

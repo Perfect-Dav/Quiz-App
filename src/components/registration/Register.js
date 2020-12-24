@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
-import RegisterPage1 from "./Registerpage1";
+import Registers from "./Registers";
+import Registerpage2 from "./RegisterPage2";
 
 class Register extends Component {
+
     state = { 
         step: 1,
         firstname: '',
@@ -36,9 +38,9 @@ class Register extends Component {
     resetState = () => {
         this.setState({
             step: 1,
-            firstname: '',
-            lastname: '',
-            username: '',
+            firstName: '',
+            lastName: '',
+            userName: '',
             password: ''
         });
     };
@@ -46,36 +48,31 @@ class Register extends Component {
     render() {  
 
         const { step } = this.state;
-        const { firstname, lastname, username, password } = this.state;
-        const values = { firstname, lastname, username, password };
+        const { firstName, lastName, userName, email, password } = this.state;
+        const values = { firstName, lastName, userName, email, password };
 
         // eslint-disable-next-line
             switch (step) {
                 case 1:
                     return(
-                        <>
-                          <RegisterPage1 
-                            nextStep={this.nextStep}
-                            resetState={this.resetState}
-                            handleChange={this.handleChange}
-                            value={values}
-                          />
-                        </>                  
+                          <Registers
+                            
+                          />           
                     );
 
                     case 2: 
-                    return(
-                        <>
-                          <RegisterPage1 
+                        return(
+                          <Registerpage2 
                             nextStep={this.nextStep}
-                            resetState={this.resetState}
+                            prevStep={this.prevStep}
                             handleChange={this.handleChange}
                             value={values}
                           />
-                        </> 
-                    );
+                        
+                        );
+
                     case 3: 
-                    return <h2>Sucsess !</h2>;  
+                        return <h2>Sucsess !</h2>;  
             }
 
     }

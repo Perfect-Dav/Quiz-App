@@ -7,19 +7,22 @@ import Logo from "../assets/Quiz_image.png";
 
 import styles from "./Registration.module.css";
 
-import { Box,  Button } from "@material-ui/core";
+import { Box, TextField, Button } from "@material-ui/core";
 
-class Registerpage1 extends Component {
-
+class Registerpage2 extends Component {
+    
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     }
 
+    back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+    }
 
     render() { 
-        
-    const { values, handleChange } = this.props;
+      const { values, handleChange } = this.props;
 
         return ( 
             <>
@@ -59,7 +62,7 @@ class Registerpage1 extends Component {
                                         <div className="col-sm-12">
                                             <ul className={styles.progressbar}>
                                                 <li className={styles.active}></li>
-                                                <li className=""></li>
+                                                <li className={styles.active}></li>
                                                 <li className=""></li>
                                             </ul>
                                         </div>
@@ -68,61 +71,67 @@ class Registerpage1 extends Component {
                                   {/** Progress **/}
                                 </div>
                               <div style={{ textAlign: 'left' }}>
-                                  <label>First Name: </label>
-                                  <input 
-                            type="text" 
-                            className="form-control email_input required" 
-                            id="reg-first-name" 
-                            placeholder="First Name"
-                            onChange={handleChange('firstName')}
-                            defaultValue={values.firstName}
-                            required
-                        />
-                                <label>Last Name: </label>
-                                  <input
-                                    //id="outlined-basic"
-                                    //label="Last Name"
-                                    //variant="outlined"
-                                    //margin="normal"
+                                  <label>Password: </label>
+                                  <TextField
+                                    id="outlined-basic"
+                                    label="Password"
+                                    variant="outlined"
+                                    margin="normal"
                                     style={{ display: 'block', marginTop: '4px' }}
-                                    //size="small"
+                                    size="small"
                                     autoComplete="true"
-                                    type="text"
-                                    defaultValue={this.values.lastname}
-                                    onChange={handleChange('lastname')}
-                                    placeholder="Last name...."
+                                    type="password"
+                                    //value={values.firstname}
+                                    defaultValue={values}
+                                    onChange={handleChange('password')}
+                                    placeholder="Password"
+                                />
+                                <label>Confirm Password: </label>
+                                  <TextField
+                                    id="outlined-basic"
+                                    label="Confirm Password"
+                                    variant="outlined"
+                                    margin="normal"
+                                    style={{ display: 'block', marginTop: '4px' }}
+                                    size="small"
+                                    autoComplete="true"
+                                    type="password"
+                                    //value={values.lastname}
+                                    onChange={handleChange('password')}
+                                    placeholder="Confirm password"
                                 />
                                 <label>Username: </label>
-                                  <input
+                                  <TextField
                                     id="outlined-basic"
-                                    //label="Username"
-                                    //variant="outlined"
-                                    //margin="normal"
+                                    label="Username"
+                                    variant="outlined"
+                                    margin="normal"
                                     style={{ display: 'block', marginTop: '4px' }}
-                                    //size="small"
+                                    size="small"
                                     autoComplete="true"
                                     type="text"
                                     //value={values.firstname}
-                                    defaultValue={values.username}
+                                    defaultValue={values}
                                     onChange={handleChange('username')}
                                     placeholder="Username"
                                 />
-                                <label>Email Address: </label>
-                                  <input
+                                <label>Role: </label>
+                                  <TextField
                                     id="outlined-basic"
-                                    //label="Email Address"
-                                    //variant="outlined"
-                                    //margin="normal"
+                                    label="Kill"
+                                    variant="outlined"
+                                    margin="normal"
                                     style={{ display: 'block', marginTop: '4px' }}
-                                    //size="small"
+                                    size="small"
                                     autoComplete="true"
-                                    type="email"
+                                    type="text"
                                     //value={values.firstname}
-                                    defaultValue={values.email}
-                                    onChange={handleChange('email')}
-                                    placeholder="you@email.com"
+                                    defaultValue={values}
+                                    onChange={handleChange('username')}
+                                    placeholder="Username"
                                 />
                               </div>
+                              <Button onClick={this.back} type="submit">Previous</Button>
                               <Button onClick={this.continue} type="submit">Next</Button>
                             </form>
                         </Box>
@@ -133,4 +142,4 @@ class Registerpage1 extends Component {
     }
 }
  
-export default Registerpage1;
+export default Registerpage2;

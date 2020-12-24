@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, Redirect } from 'react-router-dom';
-import axios from "axios";
+import { Link as RouterLink } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import { ToastContainer, toast } from 'react-toastify';
 
-import { authenticate, isAuth } from "../auth/auth";
+//import { authenticate, isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
 import Logo from "../assets/Quiz_image.png";
@@ -11,7 +12,9 @@ import{ Box, TextField, Link, Button } from "@material-ui/core";
 
 import styles from "./Login.module.css";
 
-const Login = ({ history }) => {
+const Login = () => {
+
+    const { isAuthenticated, loginWithRedirect} = useAuth0()
 
     useEffect(() => {
         document.title = "Login | Quiz Made Easy"
@@ -29,47 +32,17 @@ const Login = ({ history }) => {
     const { email, password } = formData;
 
     const handleSubmit = e => {
-        
-    e.preventDefault();
-        if (email && password) {
-          //setFormData({ ...formData, textChange: 'Submitting' });
-          axios
-            .post(`${process.env.REACT_APP_API_URL}login`, {
-              email,
-              password
-            })
-            .then(res => {
-                authenticate(res.json(), () => {
-                    setFormData({
-                    ...formData,
-                    email: '',
-                    password: '',
-                    // textChange: 'Sign In'
-                    });
-                    console.log(res.data)
-                    //toast.success('Sign in successfull');
-                });
-
-                // If authenticate but not admin, redirect to /private
-                // If admin, redirect to /admin
-                isAuth() && isAuth().role === 'admin'
-                  ? history.push('/Login')
-                  : history.push('/');
-                
-            })
-            .catch(err => {
-                console.log(err.response);          
-            });
+        if ( email && password ) {
+            e.preventDefault();
+            loginWithRedirect();
         } else {
-          alert('Please enter your email and password. Thanks.');
+            toast.error("Error! Fill all inputs.")
         }
     };
-    
     return ( 
+      !isAuthenticated && (
         <>
-            <section className={styles.loginSection}>
-                {isAuth()? <Redirect to='/'/> : null}
-
+            <section className={styles.loginSection}>                
                 <Header />
 
                 <Box
@@ -134,20 +107,23 @@ const Login = ({ history }) => {
                                     Forgot password?
                                 </Link>
 
+                                
                                 <Button onClick={handleSubmit} className={styles.loginBtn}>Login</Button>
-
+                                 
                                 <h5>Don't have an account?</h5>
                                 
                                 <Button component={RouterLink} to="/Register" className={styles.loginBtn}>Create an account</Button>
 
                             </div>
                         </div>
+                        <ToastContainer/>
                       </form>
                     </Box>
                 </Box>
             </section>
         </>
-     );
+        )
+     )
 }
  
 export default Login;
