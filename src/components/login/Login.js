@@ -20,25 +20,10 @@ const Login = () => {
         document.title = "Login | Quiz Made Easy"
     }, []);
 
-    const[ formData, setFormData ] = useState({
-        email: '',
-        password: ''
-    })
-
-    const handleChange = input => e => {
-        setFormData({ ...formData, [input]: e.target.value });
+    const handleSubmit = () => {            
+        loginWithRedirect();
     };
-
-    const { email, password } = formData;
-
-    const handleSubmit = e => {
-        if ( email && password ) {
-            e.preventDefault();
-            loginWithRedirect();
-        } else {
-            toast.error("Error! Fill all inputs.")
-        }
-    };
+    
     return ( 
       !isAuthenticated && (
         <>
@@ -62,62 +47,7 @@ const Login = () => {
                         borderRadius={13}
                         bgcolor="#fff"
                     >
-                      <form>
-                        <div className={styles.loginDiv}>
-                            <div className={styles.loginDiv_heading}>
-                                <img 
-                                    src={Logo}
-                                    alt="Login Logo"
-                                    className="img-fluid"
-                                    style={{ maxWidth: '46%' }}
-                                />
-                                <h3>Welcome to Quiz Inc.</h3>
-                                <h5>Please enter your email and password.</h5>
-                            </div>
-                            <div className={styles.login_input}>
-                                <label>Email Address:</label>
-                                <TextField
-                                    id="outlined-basic"
-                                    label="Email Address"
-                                    variant="outlined"
-                                    margin="normal"
-                                    style={{ display: 'block', marginTop: '4px' }}
-                                    size="small"
-                                    autoComplete="true"
-                                    type="email"
-                                    defaultValue={email}
-                                    onChange={handleChange('email')}
-                                    placeholder="you@email.com"
-                                /> <br />
-                                <label>Password:</label>
-                                <TextField
-                                    id="outlined-basic password"
-                                    label="Password"
-                                    variant="outlined"
-                                    margin="normal"
-                                    style={{ display: 'block', marginTop: '4px' }}
-                                    size="small"
-                                    autoComplete="true"
-                                    type="password"
-                                    defaultValue={password}
-                                    onChange={handleChange('password')}
-                                />
-
-                                <Link className={styles.forgotLink} component={RouterLink} to="/Forgot-Password">
-                                    Forgot password?
-                                </Link>
-
-                                
-                                <Button onClick={handleSubmit} className={styles.loginBtn}>Login</Button>
-                                 
-                                <h5>Don't have an account?</h5>
-                                
-                                <Button component={RouterLink} to="/Register" className={styles.loginBtn}>Create an account</Button>
-
-                            </div>
-                        </div>
-                        <ToastContainer/>
-                      </form>
+                        <Button onClick={handleSubmit} className={styles.loginBtn}>Login</Button>
                     </Box>
                 </Box>
             </section>

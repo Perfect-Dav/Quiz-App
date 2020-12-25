@@ -31,10 +31,15 @@
 }
 
 .loginBtn {
-    width: 100%;
-    background: #2f49b0 !important;
+    font-family: 'Quicksand', sans-serif !important;
+    height: 82px;
+    padding: 14px 24px !important;
+    font-size: 24px !important;
+    border-radius: 16px !important;
+    font-weight: bold !important;
+    background-color: #ffffff !important;
+    box-shadow: 0px 4px 0px #ffffff !important;
     color: #ffffff !important;
-    height: 48px !important;
-    margin-top: 30px !important;
-    margin-bottom: 30px !important;
+    transition: all 0.2s !important;
+    text-decoration: none !important;
 }
