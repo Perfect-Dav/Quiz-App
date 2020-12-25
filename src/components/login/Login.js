@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+//import { Link as RouterLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { ToastContainer, toast } from 'react-toastify';
+//import { ToastContainer, toast } from 'react-toastify';
 
 //import { authenticate, isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
-import Logo from "../assets/Quiz_image.png";
+//import Logo from "../assets/Quiz_image.png";
 
-import{ Box, TextField, Link, Button } from "@material-ui/core";
+import{ Box, Button } from "@material-ui/core";
 
 import styles from "./Login.module.css";
 
@@ -23,7 +23,7 @@ const Login = () => {
     const handleSubmit = () => {            
         loginWithRedirect();
     };
-    
+
     return ( 
       !isAuthenticated && (
         <>

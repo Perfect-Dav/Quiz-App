@@ -4,9 +4,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 //import { authenticate, isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
-import Logo from "../assets/Quiz_image.png";
+//import Logo from "../assets/Quiz_image.png";
 
-import{ Box, TextField, Link, Button } from "@material-ui/core";
+import{ Box, Button } from "@material-ui/core";
 
 import styles from "./Login.module.css";
 
