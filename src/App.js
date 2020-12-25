@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from "./components/landing page/Homepage";
 import MainHomePage from "./components/landing page/MainHomePage";
 import Login from "./components/login/Login";
+import Logout from "./components/login/Logout";
 import ForgotPassword from "./components/registration/ForgotPassword";
 import Register from "./components/registration/Register";
 
@@ -26,6 +27,7 @@ const App = ({ hideLoader }) => {
         <Route path="/HomePage" component={HomePage} />
 
         <Route path="/Login" component={Login} />
+        <Route path="/Logout" component={Logout} />
         <Route path="/Forgot-Password" component={ForgotPassword} />
         <Route path="/Register" component={Register} />
 
