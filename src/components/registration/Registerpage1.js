@@ -7,7 +7,7 @@ import Logo from "../assets/Quiz_image.png";
 
 import styles from "./Registration.module.css";
 
-import { Box,  Button } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 
 class Registerpage1 extends Component {
 

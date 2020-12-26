@@ -179,7 +179,7 @@ const Registers = () => {
                                     placeholder="Confirm Password"
                                 />
                               </div>
-                              <Button onClick={handleSubmit} type="submit">Submit</Button>
+                              <Button className={styles.regBtn} onClick={handleSubmit} type="submit">Submit</Button>
                             </form>
                             <ToastContainer/>
                         </Box>
