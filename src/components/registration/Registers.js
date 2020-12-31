@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-import{ Box, TextField, Button } from "@material-ui/core";
+import{ Box, TextField, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from "@material-ui/core";
 import { Redirect, useHistory } from 'react-router-dom';
 import { isAuth } from "../auth/auth";
 
@@ -10,7 +10,22 @@ import Logo from "../assets/Quiz_image.png";
 
 import styles from "./Registration.module.css";
 
+const Transition = forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const Registers = () => {
+
+    const [openModal, setOpenModal] = useState(false);
+
+    const handleClickModalOpen = () => {
+        setOpenModal(true);
+        //history.push('/Login') 
+    };    
+
+    const handleClickModalClose = () => {
+        setOpenModal(false);
+    };
 
     useEffect(() => {
         document.title = "Register | Quiz Made Easy"
@@ -36,15 +51,19 @@ const Registers = () => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        if ( FirstName && LastName && Username && email && Password && ConfirmPassword ) {
-            toast.success( FirstName + ', You can now login');
-            alert(FirstName + ', You can now Login.');
-            history.push('/Login')
+        if ( FirstName && LastName && Username && email && Password && ConfirmPassword ) {    
+            handleClickModalOpen();
         } else {
             toast.error("Error, kindly fill the required inputs.")
         }
     };
 
+    const handleFinalSubmit = e => {
+        e.preventDefault();
+        if ( FirstName && LastName && Username && email && Password && ConfirmPassword ) {    
+            history.push('/Login');
+        }
+    }
     const handlePassword = e => {
         e.preventDefault();
         if (Password === ConfirmPassword )  {
@@ -61,7 +80,33 @@ const Registers = () => {
             <section>
                 
                 <Header />
-
+                <Dialog
+                    open={openModal}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClickModalClose}
+                    aria-labelledby="alert-dialog-slide-title"
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                <DialogTitle id="alert-dialog-slide-title">
+                    {"Quiz Inc. Registration Form Confirmation"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description">
+                        Thank you for creating an account with Quiz Inc.
+                        Kindly, ensure you filled the correct informations as they
+                        would be validated on your account approval.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClickModalClose} color="primary">
+                        Disagree
+                    </Button>
+                    <Button onClick={handleFinalSubmit} color="primary">
+                        Agree
+                    </Button>
+                </DialogActions>
+                </Dialog>
                     <Box
                         display="flex"
                         justifyContent="center"
