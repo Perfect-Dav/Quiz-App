@@ -47,7 +47,7 @@ const Registers = () => {
 
     const handlePassword = e => {
         e.preventDefault();
-        if (Password === ConfirmPassword ) {
+        if (Password === ConfirmPassword )  {
             toast.success("Password matches")
         } else {
             toast.error("Password doesn't match")

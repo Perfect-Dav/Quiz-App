@@ -18,6 +18,10 @@ const Mission = () => {
                     src={mission1} 
                     alt="Mission 1"
                 />
+                <img 
+                  src={mission2}
+                  alt="Mission 2"
+                />
                 </div>                
             </Container>
           </section>
