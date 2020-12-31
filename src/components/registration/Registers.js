@@ -93,7 +93,7 @@ const Registers = () => {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Thank you for creating an account with Quiz Inc.
+                        Hello, {FirstName} {LastName}. Thank you for creating an account with Quiz Inc.
                         Kindly, ensure you filled the correct informations as they
                         would be validated on your account approval.
                     </DialogContentText>
