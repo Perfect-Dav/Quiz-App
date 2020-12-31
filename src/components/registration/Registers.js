@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import{ Box, TextField, Button } from "@material-ui/core";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
@@ -31,17 +31,22 @@ const Registers = () => {
 
     const { FirstName, LastName, Username, email, Password, ConfirmPassword } = formData;
 
+    const history = useHistory();
+
     const handleSubmit = e => {
         e.preventDefault();
 
         if ( FirstName && LastName && Username && email && Password && ConfirmPassword ) {
-            toast.success( LastName + " " + FirstName + '' + Username );
+            toast.success( FirstName + ', You can now login');
+            alert(FirstName + ', You can now Login.');
+            history.push('/Login')
         } else {
             toast.error("Error, kindly fill the required inputs.")
         }
     };
 
     const handlePassword = e => {
+        e.preventDefault();
         if (Password === ConfirmPassword ) {
             toast.success("Password matches")
         } else {

@@ -135,6 +135,7 @@
     margin-bottom: 10px !important;
     text-align: center;
     margin: 24px auto;
+    padding-top: 5px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
     box-shadow: 0px 0px 9px rgba(0,0,0,0.05), inset 2px 2px 8px rgba(255,255,255,0.25), inset -2px -2px 4px rgba(0,0,0,0.05);
@@ -304,6 +305,15 @@
     margin-top: 24px;
 }
 
+div.socialLinks a {
+    color: #ffffff;
+    margin: 10px;
+}
+
+div.socialLinks a:hover {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
 .socialLinks span {
     font-size: 14px;
     font-weight: 500;
@@ -313,7 +323,7 @@
     color: #ffffff;
     list-style-type: none;
     margin-bottom: 16px;
-    font-family: 'Quicksand', sans-serif !important;
+    font-family: 'Quicksand', sans-serif !important; 
 }
 
 .footerLink2 a {

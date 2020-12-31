@@ -16,8 +16,9 @@ import Register from "./components/registration/Register";
 import Mission from "./components/mission/Mission";
 
 //Daahboard Components
+import Dashboard from "./components/dashboard/Dashboard";
 
-//Styles 
+// Modules Styles 
 import "bootstrap/dist/css/bootstrap.css";
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -26,7 +27,7 @@ const App = ({ hideLoader }) => {
   // eslint-disable-next-line
   useEffect(hideLoader, []);
 
-  return (
+  return (     
     <Router>
       
     <div className="App">
@@ -41,6 +42,8 @@ const App = ({ hideLoader }) => {
         <Route path="/Logout" component={Logout} />
         <Route path="/Forgot-Password" component={ForgotPassword} />
         <Route path="/Register" component={Register} />
+
+        <Route path="/Dashboard" component={Dashboard} />
 
       </Switch>
 

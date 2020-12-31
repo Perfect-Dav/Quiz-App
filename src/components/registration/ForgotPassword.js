@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
 import { isAuth } from "../auth/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 import Header from "../landing page/Onlyheader";
 import styles from "./Registration.module.css";
@@ -42,16 +43,16 @@ const ForgotPassword = () => {
               email: '',
             });
             //toast.success(`Success! Check your mail.`);
-            alert("Success! Check your mail.")
+            toast.success("Success! Check your mail.")
           
         })
         .catch(err => {
         console.log(err.response)
-          //toast.error(err.response.data.error);
+          toast.error(err.response.data.error);
         });
     } else {
       //toast.error('Error. try again!');
-      alert('Error, try again!');
+      toast.error('Error, try again!');
     }
   };
 
@@ -60,7 +61,7 @@ const ForgotPassword = () => {
           <section className={styles.forgotSection}>
             {isAuth()? <Redirect to='/login'/> : null}
             <Header />
-
+            <ToastContainer/>
             <Box
               display="flex"
               justifyContent="center"

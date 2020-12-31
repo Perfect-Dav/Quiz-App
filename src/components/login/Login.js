@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
-import axios from "axios";
+//import axios from "axios";
+//import { toast, ToastContainer } from "react-toastify";
 
-import { authenticate, isAuth } from "../auth/auth";
+import { isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
 import Logo from "../assets/Quiz_image.png";
@@ -11,7 +12,7 @@ import{ Box, TextField, Link, Button } from "@material-ui/core";
 
 import styles from "./Login.module.css";
 
-const Login = ({ history }) => {
+const Login = () => {
 
     useEffect(() => {
         document.title = "Login | Quiz Made Easy"
@@ -28,48 +29,11 @@ const Login = ({ history }) => {
 
     const { email, password } = formData;
 
-    const handleSubmit = e => {
-
-    e.preventDefault();
-        if (email && password) {
-          //setFormData({ ...formData, textChange: 'Submitting' });
-          axios
-            .post(`${process.env.REACT_APP_API_URL}login`, {
-              email,
-              password
-            })
-            .then(res => {
-                authenticate(res.json(), () => {
-                    setFormData({
-                    ...formData,
-                    email: '',
-                    password: '',
-                    // textChange: 'Sign In'
-                    });
-                    console.log(res.data)
-                    //toast.success('Sign in successfull');
-                });
-
-                // If authenticate but not admin, redirect to /private
-                // If admin, redirect to /admin
-                isAuth() && isAuth().role === 'admin'
-                  ? history.push('/Login')
-                  : history.push('/');
-
-            })
-            .catch(err => {
-                console.log(err.response);          
-            });
-        } else {
-          alert('Please enter your email and password. Thanks.');
-        }
-    };
-
     return ( 
         <>
             <section className={styles.loginSection}>
-                {isAuth()? <Redirect to='/'/> : null}
-
+                {isAuth()? <Redirect to='/Dashboard'/> : null}
+                {/**<ToastContainer/>**/}
                 <Header />
 
                 <Box
@@ -134,7 +98,7 @@ const Login = ({ history }) => {
                                     Forgot password?
                                 </Link>
 
-                                <Button onClick={handleSubmit} className={styles.loginBtn}>Login</Button>
+                                <Button component={RouterLink} to="/Dashboard" className={styles.loginBtn}>Login</Button>
 
                                 <h5>Don't have an account?</h5>
 
