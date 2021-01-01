@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Container from "react-bootstrap/Container";
 
@@ -10,6 +11,10 @@ import mission2 from "./missionImg/mission2.png";
 const Mission = () => {
     return ( 
         <>
+        <Helmet>
+          <title>Our Mission | Quiz Inc.</title>
+        </Helmet>
+
           <section>
               <Header />
             <Container fluid>a

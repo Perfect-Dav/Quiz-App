@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { Link as RouterLink } from 'react-router-dom';
 //import axios from "axios";
 //import { toast, ToastContainer } from "react-toastify";
-
-import { isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
 import Logo from "../assets/Quiz_image.png";
@@ -13,10 +12,6 @@ import{ Box, TextField, Link, Button } from "@material-ui/core";
 import styles from "./Login.module.css";
 
 const Login = () => {
-
-    useEffect(() => {
-        document.title = "Login | Quiz Made Easy"
-    }, []);
 
     const[ formData, setFormData ] = useState({
         email: '',
@@ -31,8 +26,10 @@ const Login = () => {
 
     return ( 
         <>
+         <Helmet>
+             <title>Login | Quiz Made Easy</title>
+         </Helmet>
             <section className={styles.loginSection}>
-                {isAuth()? <Redirect to='/Dashboard'/> : null}
                 {/**<ToastContainer/>**/}
                 <Header />
 

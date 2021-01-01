@@ -1,9 +1,10 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, forwardRef } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 import { ToastContainer, toast } from 'react-toastify';
 
 import{ Box, TextField, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from "@material-ui/core";
-import { Redirect, useHistory } from 'react-router-dom';
-import { isAuth } from "../auth/auth";
 
 import Header from "../landing page/Onlyheader";
 import Logo from "../assets/Quiz_image.png";
@@ -20,16 +21,11 @@ const Registers = () => {
 
     const handleClickModalOpen = () => {
         setOpenModal(true);
-        //history.push('/Login') 
     };    
 
     const handleClickModalClose = () => {
         setOpenModal(false);
     };
-
-    useEffect(() => {
-        document.title = "Register | Quiz Made Easy"
-    }, []);
 
     const[ formData, setFormData ] = useState({
         FirstName: '',
@@ -75,11 +71,14 @@ const Registers = () => {
 
     return ( 
             <>
-             {isAuth()? <Redirect to='/'/> : null}
+            <Helmet>
+                <title>Register | Quiz Made Easy</title>
+            </Helmet>
 
             <section>
                 
                 <Header />
+
                 <Dialog
                     open={openModal}
                     TransitionComponent={Transition}
@@ -132,13 +131,9 @@ const Registers = () => {
                                         className="img-fluid"
                                         style={{ maxWidth: '46%' }}
                                     />
-                                <h2>Welcome to Quiz Inc. <br /> Create your account now!</h2>
-
-                                <div className="col-12 form-group">
-                                    
-                                  </div>
-                                  {/** Progress **/}
+                                  <h2>Welcome to Quiz Inc. <br /> Create your account now!</h2>
                                 </div>
+
                              <div style={{ textAlign: 'left' }}>
                                   <label>First Name: </label>
                                   <TextField

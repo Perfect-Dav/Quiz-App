@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -31,6 +32,10 @@ const App = ({ hideLoader }) => {
     <Router>
       
     <div className="App">
+
+    <Helmet>
+      <title>Home | Quiz Made Easy</title>
+    </Helmet>
 
       <Switch>
         <Route path="/" exact component={MainHomePage} />
