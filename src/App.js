@@ -19,6 +19,12 @@ import Mission from "./components/mission/Mission";
 //Daahboard Components
 import Dashboard from "./components/dashboard/Dashboard";
 
+//Demo
+import Demo from "./components/demo/Demo";
+
+//404 page
+import NoPage from "./components/404/NoPage";
+
 // Modules Styles 
 import "bootstrap/dist/css/bootstrap.css";
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -49,6 +55,10 @@ const App = ({ hideLoader }) => {
         <Route path="/Register" component={Register} />
 
         <Route path="/Dashboard" component={Dashboard} />
+
+        <Route path="/Demo" component={Demo} />
+
+        <Route component={NoPage} />
 
       </Switch>
 
